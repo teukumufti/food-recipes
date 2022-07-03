@@ -11,7 +11,7 @@
 
 <script>
 export default {
-  name: 'HomePage'
+  name: 'HomePage'  
 }
 </script>
 
@@ -19,7 +19,6 @@ export default {
 body {
   background-color: rgb(106, 1, 1);
   padding-bottom: 10px;
-  
 }
 
 /* scrollbar */
