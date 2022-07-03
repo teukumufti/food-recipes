@@ -1,18 +1,15 @@
-<template> 
-<div>
-  <Navbar/>
-  <Card />
-  <List />
-  </div> 
+<template>
+  <div>
+    <Navbar />
+    <Card />
+    <List />
+  </div>
 </template>
-
-
-
 
 <script>
 export default {
-  name: 'HomePage'  
-}
+  name: "HomePage",
+};
 </script>
 
 <style>
@@ -25,5 +22,4 @@ body {
 ::-webkit-scrollbar {
   width: 0px;
 }
-
 </style>
