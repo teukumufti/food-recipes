@@ -5,7 +5,7 @@
         <h5 class="mb-3">
           {{ recipes.title }}
         </h5>
-        <b-img :src="recipes.thumb" class="mb-4 mt-2" />
+        <b-img :src="recipes.thumb" class="img-detail" />
         <div class="desc">
           <span>
             {{ recipes.desc }}
@@ -15,27 +15,29 @@
 
       <div class="ingredient">
         <h4 class="mb-3 text-center">Ingredient</h4>
-        <div>
-          <span>{{ recipes.ingredient }}</span> <br />
+        <div v-for="(item, index) in recipes.ingredient">
+          <span>- {{ item }}</span> <br />
         </div>
         <div class="item">
           <span>
-            Bahan Tambahan : <br />
-            -{{ recipes.needItem }}
+            Bahan Tambahan :
+            <br />
+            <br />
           </span>
-          <br />
-          <br />
-          <b-img
-            src="https://www.masakapahariini.com/wp-content/uploads/2019/05/bango-bumbu-kuliner-nusantara-nasi-goreng-kambing-khas-jakarta-100x100.png"
-          />
+          <div v-for="(item, index) in recipes.needItem">
+            <span> - {{ item.item_name }}</span>
+            <br />
+            <br />
+            <b-img :src="item.thumb_item" />
+          </div>
         </div>
       </div>
 
       <div class="step">
-        <h4 class="mb-3 text-center">Step</h4>
-        <div>
+        <h4 class="mb-4 text-center">Step</h4>
+        <div v-for="(item, index) in recipes.step">
           <span>
-            {{ recipes.step }}
+            {{ item }}
           </span>
           <br />
         </div>
@@ -53,10 +55,9 @@
             </p>
           </b-col>
           <b-col class="caption text-right mt-3">
-            <p>
-              {{ recipes.author }}
-              <!-- Publish at : februari 16 2020 <br />
-              By : Valentina -->
+            <p v-if="recipes.author">
+              Publish at : {{ recipes.author.datePublished }} <br />
+              By : {{ recipes.author.user }}
             </p>
           </b-col>
         </b-row>
@@ -98,6 +99,11 @@ export default {
   background-color: rgb(255, 153, 0);
   margin: auto;
   margin-top: 20px;
+}
+.img-detail {
+  width: 90%;
+  margin-top: 20px;
+  margin-bottom: 20px;
 }
 
 .desc {
